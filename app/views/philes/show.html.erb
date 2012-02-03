@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @phile.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @phile.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_phile_path(@phile) %> |
+<%= link_to 'Back', philes_path %>

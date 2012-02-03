@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="sidebar" style="position: fixed; top: 61px" style="overflow: hidden">
+    <div class="well">
+      <div id="fileTree"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="hero-unit">
+      <form>
+        <textarea id="code" name="code"><%= @content %></textarea>
+        <br/>
+        <!-- <input type="submit" class="btn primary"> -->
+      </form>
+      <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+          lineNumbers: true,
+          mode: "text/x-ruby",
+          tabMode: "indent",
+          matchBrackets: true,
+          indentUnit: 4
+        });
+        $(window).keypress(function(event) {
+          if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
+          alert("Ctrl-S pressed");
+          event.preventDefault();
+          return false;
+        });
+      </script>
+    </div>
+  </div>
+</div>

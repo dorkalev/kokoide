@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ide</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <style>
+    html,body {
+        height:100%;
+    }
+      .CodeMirror {
+        width: 100%;
+      .cm-s-default span.cm-arrow { color: red; }
+    </style>
+
+    <meta charset="utf-8">
+    <title>Dorke IDE</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $('#fileTree').fileTree({ root: '<%= @dir %>', script: 'jqueryfiletree' }, function(file) {
+              open_file(file)
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="javascript://">Koko Editor</a>
+          <ul class="nav">
+            <li><a href="javascript://" class="save_button">Save</a></li>
+            <li><a href="javascript://">Find</a></li>
+            <li><a href="javascript://">Contact</a></li>
+          </ul>
+          <!-- <p class="pull-right">Logged in as <a href="#">username</a></p> -->
+        </div>
+      </div>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>
